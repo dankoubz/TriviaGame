@@ -1,0 +1,72 @@
+body {
+    background: transparent;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    text-transform: uppercase;
+}
+
+
+/* Background Animation */
+
+img#img-bg {
+    transition: 3s ease-out;
+}
+
+img#img-bg:hover {
+    transform: scale(1.1);
+    transition: 2s ease;
+}
+
+
+/* Sections */
+
+main section#gameContainer {
+    height: 70vh;
+    border-radius: 10px;
+    background-color: rgba(26, 26, 26, 0.9);
+    border: white 2px solid;
+    box-shadow: -10px 10px 15px rgba(26, 26, 26, 0.5);
+    transition: 1s ease;
+    z-index: 2;
+    position: absolute;
+}
+
+div.gameContainer {
+    transition: 1s ease;
+    height: 70vh;
+    border-radius: 10px;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+}
+
+section#gameContainer:hover,
+div.gameContainer:hover,
+div.gameContainer:hover {
+    transform: scale(1.035);
+    height: 75vh;
+    transition: .5s ease-in-out;
+}
+
+img.logo {
+    transition: .5s ease;
+}
+
+img.logo:hover {
+    height: 240px;
+    transition: .5s ease;
+}
+
+
+/* Buttons */
+
+button.btn-dark {
+    border: 2px solid white !important;
+    text-transform: uppercase;
+    background-color: rgba(252, 48, 3, 0.5) !important;
+}
+
+button.btn-dark:hover {
+    background-color: rgba(26, 26, 26, 0.5) !important;
+}

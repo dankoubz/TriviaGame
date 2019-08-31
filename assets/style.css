@@ -24,7 +24,7 @@ main section#gameContainer {
     height: 70vh;
     border-radius: 10px;
     background-color: rgba(26, 26, 26, 0.9);
-    border: white 2px solid;
+    border: #2a2a2a 2px solid;
     box-shadow: -10px 10px 15px rgba(26, 26, 26, 0.5);
     transition: 1s ease;
     z-index: 2;
@@ -58,15 +58,44 @@ img.logo:hover {
     transition: .5s ease;
 }
 
+img.rounded {
+    transition: 1s ease;
+}
+
+img.rounded:hover {
+    transform: scale(1.05);
+}
+
 
 /* Buttons */
 
 button.btn-dark {
-    border: 2px solid white !important;
+    border: none !important;
     text-transform: uppercase;
     background-color: rgba(252, 48, 3, 0.5) !important;
 }
 
 button.btn-dark:hover {
     background-color: rgba(26, 26, 26, 0.5) !important;
+}
+
+button.btn-quiz {
+    background-color: rgba(26, 26, 26, 0.5);
+    color: white;
+    transition: 1s ease;
+    font-size: 1em;
+}
+
+button.btn-quiz:hover {
+    color: white;
+    background-color: rgba(26, 26, 26, 0.9);
+    transform: scale(1.05);
+}
+
+button.active {
+    background-color: rgba(252, 48, 3, 0.5);
+}
+
+button.active:hover {
+    background-color: rgba(252, 48, 3, 0.5);
 }

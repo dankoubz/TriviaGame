@@ -14,7 +14,7 @@
 
 <body>
 
-    <div class="container-fluid position-absolute no-gutters justify-content-center d-flex img-behind">
+    <div id="bg" class="container-fluid position-absolute no-gutters justify-content-center d-flex img-behind">
         <img id="img-bg" src="assets/images/boku-bg2.jpg">
     </div>
 
@@ -36,18 +36,21 @@
                         </div>
                     </section>
 
+                    <div id="timer" class="pt-3"></div>
+
                     <!-- Trivia Game -->
                     <section id="triviaGame" class="d-none row">
                         <div class="gameContainer col-12 text-center align-content-center d-flex">
                             <div class="col-12 text-center align-items-center d-flex">
                                 <div class="col-12">
 
+
                                     <!-- Question -->
                                     <p id="qNumb"></p>
                                     <h2 id="question"></h2>
 
                                     <!-- Image -->
-                                    <div id="qImg" class="mt-5 mb-5"></div>
+                                    <div id="qImg" class="mt-5 mb-5 text-center"></div>
 
                                     <div class="row">
                                         <div class="col-12 col-md-8 mx-auto">
@@ -74,8 +77,6 @@
                                     <h1 id="results" class="text-danger"></h1>
                                     <h2>Plus Ultra Results</h2>
                                     <img src="assets/images/results.gif" class="mt-3 mb-4 rounded">
-
-                                    <!-- <button id="playAgain" value="a" class="col-6 btn btn-lg  btn-dark pr-5 pl-5">Auto Play Again</button> -->
 
                                 </div>
                             </div>

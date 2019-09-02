@@ -12,9 +12,11 @@
 var correct = 0; // correct answers
 var incorrect = 0; // incorrect answers
 var questionOrderStatus = 0; // current question number for user
-var userGuess;
-var value;
-var tempNumb = 0;
+var userGuess; // user guess
+var tempNumb = 0; // temp number
+var clockRunning = false; // timer clock for quiz
+var time = 0; // increment of time
+var myTimer;
 
 // questions + answers global scope
 var myQuestions = [{
@@ -128,8 +130,10 @@ var myQuestions = [{
 window.onload = function() {
     // on click event to start game
     $("#startGame").on("click", function() {
+        startTimer();
         $("#welcomeScreen").addClass("d-none");
         $("#triviaGame").removeClass("d-none").addClass("d-block");
+        $("#timer").html("<h2 class='text-center'> 00:00 </h2>");
     });
 
     intialiseGame();
@@ -218,10 +222,20 @@ function nextQuizQuestion() {
         var result = (correct / 8 * 100) + "%";
         $("#results").append(result);
 
+        correct = 0;
+        incorrect = 0;
+
+        clearInterval(myTimer);
+
+
         questionOrderStatus = 0;
         setTimeout(delayNextQuestion, 7000);
 
         function delayNextQuestion() {
+            time = 0;
+            clockRunning = false;
+            $("#timer").html("<h2 class='text-center'> 00:00 </h2>");
+            startTimer();
             console.log("Step 18: call function re-intialise the game, pass parameter");
 
             console.log("Step 19: fired click!");
@@ -229,35 +243,51 @@ function nextQuizQuestion() {
             $("#triviaGame").removeClass("d-none").addClass("d-block");
 
             intialiseGame("quiz");
-            // intialiseGame("play again");
-        }
 
-        // displayResults();
+
+        }
     }
 
 }
 
-
-
-
-
-// function to track score - track correct / incorrect 
-// function keepQuizScoreCount(guess)
-
-
-
 // function timer
-// on each question give a timer of 15s
 // if timer not met, skip to next question
 
-// display results screen
-// show correct and incorrect number
-// function displayResults() {
+function startTimer() {
+    // fun if false
+    if (!clockRunning) {
+        myTimer = setInterval(countTimer, 1000);
+        // clockRunning = true;
+    }
+}
+
+// function count time and display
+function countTimer() {
+    time++;
+    $("#timer").html("<h2 class='text-center'>" + timeConverter(time) + "</h2>");
+
+}
 
 
-// }
+//  Takes the current time in seconds and convert it to minutes and seconds (mm:ss).
+function timeConverter(t) {
 
+    time = t;
+    var minutes = Math.floor(t / 60);
+    var seconds = t - (minutes * 60);
 
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+
+    if (minutes === 0) {
+        minutes = "00";
+    } else if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    return minutes + ":" + seconds;
+}
 
 
 // quiz click functionality fire event!
@@ -299,8 +329,6 @@ function intialiseGame(refresh) {
         console.log("Step 16: Empty userGuess = " + userGuess);
 
     }
-
-
 
     console.log("Step 0: call function");
     displayQuestionsAnswers("start");
